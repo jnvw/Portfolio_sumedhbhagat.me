@@ -6,7 +6,9 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
-
+import collab from "./collab.png";
+import stock from "./stock.png";
+import dailydiary from "./dailydiary.png";
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -32,10 +34,21 @@ import mongo from"./company/mongo.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+//certs
+
+import oracle from "./certificates/ecertificate.png";
+import ehe from "./certificates/ehe.png";
+import hcrank from "./certificates/hcrank.png";
+import ibm from "./certificates/ibm.png";
+import metab from "./certificates/metab.png";
+import metaf  from "./certificates/metaf.png";
+import  linkedin from "./certificates/linkedin.png";
+import duke from "./certificates/duke.png";
 
 export {
   logo,
   backend,
+  duke,
   creator,
   mobile,
   web,
@@ -44,6 +57,7 @@ export {
   close,
   css,
   docker,
+  linkedin,
   figma,
   git,
   html,
@@ -64,4 +78,13 @@ export {
   carrent,
   jobit,
   tripguide,
-};
+  oracle,
+  ehe,
+  hcrank,
+  ibm,
+  metab,
+  metaf,
+  stock,
+  collab,
+  dailydiary
+}

@@ -27,7 +27,8 @@ const FeedbackCard =({index,testimonial,name,designation,company,image})=>(
     </div>
     <img
     src={image}
-    alt={`{feedback-by-${name}`}
+    alt={`feedback-by-${name}`}
+    loading='lazy'
     className='w-12 h-12 rounded-full object-cover'
     
     

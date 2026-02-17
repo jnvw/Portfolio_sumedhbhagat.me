@@ -5,6 +5,7 @@ import About from './About';
 import Tech from './Tech';
 import Experience from './Experience';
 import Works from './Works';
+import Certificates from './Certificates';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import Footer from './Footer'
@@ -16,6 +17,7 @@ export {
   Tech,
   Experience,
   Works,
+  Certificates,
   Feedbacks,
   Contact,
   Footer,

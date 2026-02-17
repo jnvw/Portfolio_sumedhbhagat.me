@@ -22,7 +22,7 @@ const Navbar = () => {
            Bhagat</span>
           </p>
         </Link>
-        <ul className='list-none flex-row hidden sm:flex gap-10'>
+        <ul className='list-none flex-row hidden sm:flex gap-10 items-center'>
           {navLinks.map((Link)=>(
             <li
               key={Link.id}
@@ -34,7 +34,16 @@ const Navbar = () => {
 
             </li>
           ))}
-
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1OvGpv3SeEHdH2o8Nv-T6Q-tK_gublRhz/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#915eff] text-white px-4 py-2 rounded-full text-[14px] font-medium hover:bg-[#7a4ad4] transition-colors"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img src={toggle ?close :menu} 
@@ -58,7 +67,16 @@ const Navbar = () => {
 
             </li>
           ))}
-
+          <li>
+            <a
+              href="https://drive.google.com/file/d/1OvGpv3SeEHdH2o8Nv-T6Q-tK_gublRhz/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#915eff] text-white px-4 py-2 rounded-full text-[14px] font-medium hover:bg-[#7a4ad4] transition-colors"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
            </div>
         </div>

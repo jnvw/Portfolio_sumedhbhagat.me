@@ -50,10 +50,10 @@ const Contact = () => {
     message:'',
   })
 
-},(Error)=>{
+},(error)=>{
   setLoading(false)
   console.error(error);
-  alert('Somthing went wrong')
+  alert('Something went wrong')
 }
 
 )

@@ -1,8 +1,10 @@
+import { h } from "maath/dist/misc-7d870b3c.esm";
 import {
     mobile,
     backend,
     creator,
     web,
+    duke,
     javascript,
     typescript,
     html,
@@ -25,6 +27,17 @@ import {
     tripguide,
     threejs,
     Duke,
+      oracle,
+      ehe,
+      hcrank,
+      ibm,
+      metab,
+      metaf,
+      stock,
+      collab,
+      dailydiary,
+      linkedin
+
   } from "../assets";
   
   export const navLinks = [
@@ -44,15 +57,15 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "Python Developer",
+      title: "Firmware",
       icon: mobile,
     },
     {
-      title: "Backend Developer",
+      title: "Python Developer",
+      icon: web,
+    },
+    {
+      title: "AI/ML",
       icon: backend,
     },
     {
@@ -219,126 +232,6 @@ import {
   
   const projects = [
     {
-      name: "E-commerce App",
-      description:
-        "Built a full-stack E-commerce app using Django REST and ReactJS. Implemented JWT authentication, Twilio OTP, and Cashfree payment integration. Developed an admin dashboard to manage products, orders, and users with secure API access and real-time order creation.",
-      tags: [
-        {
-          name: "DRF",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "react",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: carrent,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Dairy Diary: AES-256 Encrypted Diary App",
-      description:"A secure, military-grade encrypted diary application that ensures absolute privacy using AES-256 encryption, ensuring that even the database administrator cannot read user entries.",    
-      tags: [
-        {
-          name: "FLask",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "PostgreSQL",
-          color: "green-text-gradient",
-        },
-        {
-          name: "HTML/Bootstrap",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "Cryptography (Fernet/AES)",
-          color: "orange-text-gradient",
-        },
-      ],
-      image: carrent,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Deepfake Detection Using Meta-Learning",
-      description:
-        "Implemented a robust deepfake image detection framework using MetaOptNet for meta-learning and Grad-CAM for explainability. Achieved strong generalization on unseen data with few-shot learning. Focused on adaptive model behavior and visual saliency to handle data drift effectively.",
-      tags: [
-        {
-          name: "pytorch",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "gradio",
-          color: "green-text-gradient",
-        },
-        {
-          name: "python",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "resnet18",
-          color: "orange-text-gradient",
-        },
-        {
-          name: "MetaOptNet",
-          color: "yellow-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Epileptic Seizure Prediction",
-      description:
-        "Developed a machine learning model with 97% accuracy to predict seizures using patient physiological data. Applied ensemble methods (Voting Classifier with SVM, KNN, RF, Logistic Regression) and K-Fold validation. Deployed a Gradio-based UI for user-friendly real-time predictions.",
-      tags: [
-        {
-          name: "sklearn",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "gradio",
-          color: "green-text-gradient",
-        },
-        {
-          name: "python",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "ensemble learning",
-          color: "blue-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "File Management Toolkit",
-      description:
-        "Built a Python-based toolkit with Tkinter for organizing files by type. Included image editing, file format conversions, and templates for bill/resume creation. Integrated Huffman and RLE compression, plus digital signature support using hash embedding in file metadata.",
-      tags: [
-        {
-          name: "tkinter",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "hashlib",
-          color: "green-text-gradient",
-        },
-        {
-          name: "PIL",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
       name: "CollabShop –Collaborative E-commerce Platform",
       description:
         "Created a real-time collaborative shopping platform using Django Channels and WebSockets. Features include synchronized carts, live chat, multi-group sessions, dynamic dashboard with Chart.js, full e-commerce engine, order tracking, and secure Cashfree payments with server-side verification and printable invoice support.",
@@ -368,9 +261,159 @@ import {
           color: "green-text-gradient",
         },
       ],
-      image: jobit,
+      image: collab,
       source_code_link: "https://drive.google.com/file/d/19wjYCgKm7Jizyq_4n1tRFkSo2-wC4jCI/view?usp=drive_link",
+      live_demo_link: "",
     },
+    
+    {
+      name: "Deepfake Detection Using Meta-Learning",
+      description:
+        "Implemented a robust deepfake image detection framework using MetaOptNet for meta-learning and Grad-CAM for explainability. Achieved strong generalization on unseen data with few-shot learning. Focused on adaptive model behavior and visual saliency to handle data drift effectively.",
+      tags: [
+        {
+          name: "pytorch",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "gradio",
+          color: "green-text-gradient",
+        },
+        {
+          name: "python",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "resnet18",
+          color: "orange-text-gradient",
+        },
+        {
+          name: "MetaOptNet",
+          color: "yellow-text-gradient",
+        },
+      ],
+      image: jobit,
+      source_code_link: "https://github.com/jnvw/real-time-ecommerce-webapp",
+      live_demo_link: "https://real-time-ecommerce-webapp.onrender.com/",
+    },
+    {
+      name: "Epileptic Seizure Prediction",
+      description:
+        "Developed a machine learning model with 97% accuracy to predict seizures using patient physiological data. Applied ensemble methods (Voting Classifier with SVM, KNN, RF, Logistic Regression) and K-Fold validation. Deployed a Gradio-based UI for user-friendly real-time predictions.",
+      tags: [
+        {
+          name: "sklearn",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "gradio",
+          color: "green-text-gradient",
+        },
+        {
+          name: "python",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "ensemble learning",
+          color: "blue-text-gradient",
+        },
+      ],
+      image: jobit,
+      source_code_link: "https://github.com/",
+      live_demo_link: "",
+    },
+    {
+      name: "E-commerce App",
+      description:
+        "Built a full-stack E-commerce app using Django REST and ReactJS. Implemented JWT authentication, Twilio OTP, and Cashfree payment integration. Developed an admin dashboard to manage products, orders, and users with secure API access and real-time order creation.",
+      tags: [
+        {
+          name: "DRF",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "react",
+          color: "green-text-gradient",
+        },
+        {
+          name: "tailwind",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: collab,
+      source_code_link: "https://github.com/",
+      live_demo_link: "https://drive.google.com/file/d/19wjYCgKm7Jizyq_4n1tRFkSo2-wC4jCI/view?usp=drive_link",
+    },
+    {
+      name: "Dairy Diary: AES-256 Encrypted Diary App",
+      description:"A secure, military-grade encrypted diary application that ensures absolute privacy using AES-256 encryption, ensuring that even the database administrator cannot read user entries.",    
+      tags: [
+        {
+          name: "FLask",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "PostgreSQL",
+          color: "green-text-gradient",
+        },
+        {
+          name: "HTML/Bootstrap",
+          color: "pink-text-gradient",
+        },
+        {
+          name: "Cryptography (Fernet/AES)",
+          color: "orange-text-gradient",
+        },
+      ],
+      image: dailydiary,
+      source_code_link: "https://github.com/jnvw/encripted-daily-dairy",
+      live_demo_link: "https://github.com/jnvw/encripted-daily-dairy",
+    },
+        {
+      name: "django videoconferencing app",
+      description:
+        "Created a real-time video calling application using Django  and ZegoCloud. Features include multi-party video calls, chat functionality, and user authentication.",
+      tags: [
+        {
+          name: "django",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "sqlite",
+          color: "green-text-gradient",
+        },
+        {
+          name: "ZegoCloud",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: tripguide,
+      source_code_link: "https://github.com/jnvw/django_video_call_app",
+      live_demo_link: "",
+    },
+    {
+      name: "File Management Toolkit",
+      description:
+        "Built a Python-based toolkit with Tkinter for organizing files by type. Included image editing, file format conversions, and templates for bill/resume creation. Integrated Huffman and RLE compression, plus digital signature support using hash embedding in file metadata.",
+      tags: [
+        {
+          name: "tkinter",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "hashlib",
+          color: "green-text-gradient",
+        },
+        {
+          name: "PIL",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: jobit,
+      source_code_link: "https://github.com/jnvw/file-management-toolkit",
+      live_demo_link: "",
+    },
+    
     {
       name: "transformer from scratch",
       description:
@@ -390,8 +433,33 @@ import {
         },
       ],
       image: jobit,
-      source_code_link: "https://github.com/",
+      source_code_link: "https://github.com/jnvw/tranformer_from_scratch",
+      live_demo_link: "",
     },
+    
+    {
+      name: "Stock Market Prediction",
+      description:
+        "Developed a stock market prediction model using historical price data and RSA indicator. Implemented Regression architectures for time series forecasting, achieving high accuracy and robustness. Deployed the model with a user-friendly interface for real-time predictions.",
+      tags: [
+        {
+          name: "sklearn",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "jupyter NB",
+          color: "green-text-gradient",
+        },
+        {
+          name: "python",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: stock,
+      source_code_link: "https://github.com/jnvw/Stock_Analysis",
+      live_demo_link: "",
+    },
+
     {
       name: "Real-Time Intrusion Detection System (IDS)",
       description:
@@ -412,70 +480,127 @@ import {
       ],
       image: jobit,
       source_code_link: "https://github.com/jnvw/Intrusion-Detection-System",
-    },
-    {
-      name: "Stock Market Prediction",
-      description:
-        "Developed a stock market prediction model using historical price data and RSA indicator. Implemented Regression architectures for time series forecasting, achieving high accuracy and robustness. Deployed the model with a user-friendly interface for real-time predictions.",
-      tags: [
-        {
-          name: "sklearn",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "jupyter NB",
-          color: "green-text-gradient",
-        },
-        {
-          name: "python",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/jnvw",
-    },
-    {
-      name: "Stock Market Prediction",
-      description:
-        "Developed a stock market prediction model using historical price data and RSA indicator. Implemented Regression architectures for time series forecasting, achieving high accuracy and robustness. Deployed the model with a user-friendly interface for real-time predictions.",
-      tags: [
-        {
-          name: "sklearn",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "jupyter NB",
-          color: "green-text-gradient",
-        },
-        {
-          name: "python",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/jnvw/Stock_Analysis",
-    },
-    {
-      name: "django videoconferencing app",
-      description:
-        "Created a real-time video calling application using Django  and ZegoCloud. Features include multi-party video calls, chat functionality, and user authentication.",
-      tags: [
-        {
-          name: "django",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "sqlite",
-          color: "green-text-gradient",
-        },
-        {
-          name: "ZegoCloud",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: tripguide,
-      source_code_link: "https://github.com/jnvw/django_video_call_app",
+      live_demo_link: "",
     },
   ];
   
-  export { services, technologies, experiences, testimonials, projects };
+  const certificates = [
+    {
+      name: "Back-End Development",
+      issuer: "Meta (Coursera)",
+      date: "FEB 2023",
+      description:
+        "Completed the Meta Back-End Developer Professional Certificate covering Python, Django, SQL, APIs, version control, and cloud hosting.",
+      tags: [
+        { name: "python", color: "blue-text-gradient" },
+        { name: "django", color: "green-text-gradient" },
+        { name: "SQL", color: "pink-text-gradient" },
+      ],
+      image: metab,
+      credential_link: "https://coursera.org/share/c555f6b9b5d08a47d3a9dbf5cbc7297e",
+    },
+        {
+      name: "Python",
+      issuer: "HackerRank",
+      date: "AUG 2023",
+      description:
+        "Earned HackerRank Python certification, validating proficiency in Python programming including data structures, algorithms, and problem-solving skills.",
+      tags: [
+        { name: "python", color: "blue-text-gradient" },
+        { name: "algorithms", color: "green-text-gradient" },
+        { name: "data-structures", color: "pink-text-gradient" },
+      ],
+      image: hcrank,
+      credential_link: "https://www.hackerrank.com/certificates/d5144078e4ac",
+    },
+
+    {
+      name: "Front-End Development",
+      issuer: "Meta (Coursera)",
+      date: "FEB 2023",
+      description:
+        "Completed the Meta Front-End Developer Professional Certificate covering HTML, CSS, JavaScript, React, Bootstrap, and UI/UX design.",
+      tags: [
+        { name: "react", color: "blue-text-gradient" },
+        { name: "javascript", color: "green-text-gradient" },
+        { name: "bootstrap", color: "pink-text-gradient" },
+      ],
+      image: metaf,
+      credential_link: "https://www.coursera.org/",
+    },
+    
+    {
+      name: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+      issuer: "Oracle",
+      date: "OCT 2025",
+      description:
+        "Earned the Oracle Cloud Infrastructure AI Foundations Associate certification, demonstrating knowledge of AI/ML concepts, OCI AI services, and generative AI fundamentals.",
+      tags: [
+        { name: "OCI", color: "blue-text-gradient" },
+        { name: "AI/ML", color: "green-text-gradient" },
+        { name: "cloud", color: "pink-text-gradient" },
+      ],
+      image: oracle,
+      credential_link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=1E2537929388E2ED5D7BF349A13F348738DD130E888DB7DBD2D1BCB548D8D6F3",
+    },
+    
+    {
+      name: "Ethical Hacking Essentials (EHE)",
+      issuer: "EC-Council",
+      date: "JAN 2023",
+      description:
+        "Certified in Ethical Hacking Essentials by EC-Council, covering network security, penetration testing fundamentals, vulnerability assessment, and cybersecurity best practices.",
+      tags: [
+        { name: "ethical-hacking", color: "blue-text-gradient" },
+        { name: "cybersecurity", color: "green-text-gradient" },
+        { name: "networking", color: "pink-text-gradient" },
+      ],
+      image: ehe,
+      credential_link: "https://www.coursera.org/account/accomplishments/certificate/YLCYWSW9Z3BE",
+    },
+    {
+      name: "Penetration Testing, Incident Response and Forensics",
+      issuer: "IBM",
+      date: "OCT 2023",
+      description:
+        "Completed IBM's certification covering penetration testing methodologies, incident response frameworks, and digital forensics techniques for enterprise security.",
+      tags: [
+        { name: "pen-testing", color: "blue-text-gradient" },
+        { name: "incident-response", color: "green-text-gradient" },
+        { name: "forensics", color: "pink-text-gradient" },
+      ],
+      image: ibm,
+      credential_link: "",
+    },
+    {
+      name: "Programming Fundamentals",
+      issuer: "Duke University (Coursera)",
+      date: "JAN 2023",
+      description:
+        "Mastered problem-solving skills, algorithm development, modular design, and C programming through the Duke University specialization.",
+      tags: [
+        { name: "C", color: "blue-text-gradient" },
+        { name: "algorithms", color: "green-text-gradient" },
+        { name: "problem-solving", color: "pink-text-gradient" },
+      ],
+      image: duke,
+      credential_link: "https://coursera.org/share/0e4bdaa080f819c9b9c5f511c7a2ac55",
+    },
+    {
+      name: "Unit Testing in Django",
+      issuer: "LinkedIn",
+      date: "MAY 2025",
+      description:
+        "Completed LinkedIn Learning course on unit testing in Django, covering test-driven development, test cases, fixtures, and best practices for reliable Django applications.",
+      tags: [
+        { name: "django", color: "blue-text-gradient" },
+        { name: "testing", color: "green-text-gradient" },
+        { name: "python", color: "pink-text-gradient" },
+      ],
+      image: linkedin,
+      credential_link: "https://www.linkedin.com/learning/certificates/21641ec0649381178cc2eec04c4b1c235a23c89e1fc0f7f36cad3626e9d906ca?trk=share_certificate",
+    },
+
+  ];
+
+  export { services, technologies, experiences, testimonials, projects, certificates };
