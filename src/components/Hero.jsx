@@ -2,7 +2,7 @@ import {motion} from 'framer-motion'
 import { styles } from '../styles'
 import { ComputersCanvas } from './canvas'
 import { SectionWrapper } from '../hoc'
-import Typed from 'react-typed'
+import { Typewriter } from 'react-simple-typewriter'
 
 const Hero = () => {
   return (
@@ -18,14 +18,15 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white`}>Hi ,I'm <span className='text-[#915eff]'>Sumedh</span></h1>
            
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            <div>
-              <Typed
-              strings={['Django Developer','Ethical Hacker','OpenBMC Developer','Python Developer','Firmware Developer']}
-              loop
-              typeSpeed={90}
-
+            <span>
+              <Typewriter
+                words={['Django Developer','Ethical Hacker','OpenBMC Developer','Python Developer','Firmware Developer']}
+                loop={true}
+                typeSpeed={90}
+                deleteSpeed={50}
+                delaySpeed={1500}
               />
-            </div>
+            </span>
           </p>
           </div>
          
