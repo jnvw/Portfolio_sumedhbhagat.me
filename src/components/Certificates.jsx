@@ -7,7 +7,12 @@ import { fadeIn, textVariant } from "../utils/motion"
 
 const CertificateCard = ({ index, name, issuer, date, description, tags, image, credential_link }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      variants={fadeIn("up", "spring", index % 3 * 0.5, 0.75)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       <Tilt
         options={{
           max: 45,
