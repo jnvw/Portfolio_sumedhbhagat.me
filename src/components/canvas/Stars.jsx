@@ -1,4 +1,4 @@
-import {useState,Suspense,useRef} from 'react'
+import {useState,Suspense,useRef,useMemo} from 'react'
 import { Canvas,useFrame } from '@react-three/fiber'
 import {Points ,PointMaterial,Preload} from '@react-three/drei'
 import * as random from 'maath/random/dist/maath-random.esm'
@@ -7,7 +7,7 @@ import * as random from 'maath/random/dist/maath-random.esm'
 
 const Stars = (props) => {
   const ref=useRef();
-  const sphere=random.inSphere(new Float32Array(3000), {radius :1.3})
+  const sphere= useMemo(()=>random.inSphere(new Float32Array(3000), {radius :1.3}),[]);
   useFrame((state,delta)=>{
     ref.current.rotation.x-=delta/10;
     ref.current.rotation.y -=delta/15;
@@ -22,11 +22,11 @@ const Stars = (props) => {
   <group rotation={[0,0,Math.PI/4]}>
     <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
      <PointMaterial 
-       transparant
+       transparent
        color='#f271c8'
-       size={0.002}
+       size={0.005}
        depthWrite={false}
-       sizeAttentuarion={true}
+       sizeAttenuation={true}
      
      />
     </Points>
@@ -38,7 +38,7 @@ const Stars = (props) => {
 
 const StarsCanvas=()=>{
   return(
-    <div  className='w-full h-auto absolute inset-0 z-[-1]'>
+    <div  className='w-full h-full absolute inset-0 z-[-1]' style={{pointerEvents:'none'}}>
       <Canvas camera={{position:[0,0,1]}}>
         <Suspense fallback={null}>
           <Stars />
