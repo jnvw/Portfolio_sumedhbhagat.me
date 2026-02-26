@@ -19,7 +19,7 @@ const CertificateCard = ({ index, name, issuer, date, description, tags, image, 
           scale: 1,
           speed: 450,
         }}
-        className="bg-ternary p-5 rounded-2xl border-2 border-cyan-800 sm:w-[360px] w-full"
+        className="bg-ternary p-5 rounded-2xl gradient-border-hover sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
           <img

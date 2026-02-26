@@ -113,6 +113,128 @@
 }
 
 /* canvas- styles */
+
+/* Timeline snake traveling effect */
+.vertical-timeline {
+  position: relative;
+}
+
+.vertical-timeline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 80px;
+  border-radius: 4px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #4285F4,
+    #EA4335,
+    #FBBC05,
+    #34A853,
+    transparent
+  );
+  filter: drop-shadow(0 0 8px #4285F4) drop-shadow(0 0 15px #EA4335);
+  animation: snake-travel 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1169px) {
+  .vertical-timeline::after {
+    left: 18px;
+    transform: none;
+  }
+}
+
+@keyframes snake-travel {
+  0% {
+    top: -80px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Timeline Google gradient bottom border */
+.vertical-timeline-element-content {
+  background: #1d1836 !important;
+  box-shadow: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.vertical-timeline-element-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 3px;
+  background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4, #EA4335, #FBBC05, #34A853);
+  animation: timeline-border-shift 3s linear infinite;
+}
+
+@keyframes timeline-border-shift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.vertical-timeline-element-content-arrow {
+  border-right-color: #232631 !important;
+}
+
+@keyframes border-spin {
+  from { background: conic-gradient(from 0deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4); }
+  25% { background: conic-gradient(from 90deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4); }
+  50% { background: conic-gradient(from 180deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4); }
+  75% { background: conic-gradient(from 270deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4); }
+  to { background: conic-gradient(from 360deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4); }
+}
+
+/* Hover gradient border for cards */
+.gradient-border-hover {
+  position: relative;
+  border: 2px solid #0e7490;
+  transition: border-color 0.3s;
+}
+
+.gradient-border-hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from 0deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: border-spin 3s linear infinite;
+  pointer-events: none;
+}
+
+.gradient-border-hover:hover {
+  border-color: transparent;
+}
+
+.gradient-border-hover:hover::before {
+  opacity: 1;
+}
+
+/* canvas- styles */
 .canvas-loader {
   font-size: 10px;
   width: 1em;

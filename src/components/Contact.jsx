@@ -7,9 +7,9 @@ import { SectionWrapper } from "../hoc"
 import { slideIn } from "../utils/motion"
 
 
-//service_yvggbch
-//template_7b468uq
-//_y8bHQkSli5AcURh9
+//service_pem01tm
+//template_cttmepw
+//ok93FNXjWVbZ3J7_s
 
 const Contact = () => {
   const formRef = useRef();
@@ -32,13 +32,13 @@ const Contact = () => {
 //_y8bHQkSli5AcURh9
 
       emailjs.send(
-        'service_yvggbch','template_7b468uq',{
+        'service_pem01tm','template_cttmepw',{
           from_name:form.name,
           to_name:'Sumedh',
           from_email:form.email,
           to_email:'sumedhbhagat05@gmail.com',
           message:form.message,
-        },'_y8bHQkSli5AcURh9'
+        },'ok93FNXjWVbZ3J7_s'
 
       )
 .then(()=>{
@@ -63,8 +63,19 @@ const Contact = () => {
     <div className="xl:mt-4 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden ">
      <motion.div 
      variants={slideIn("left","tween", 0.2,1)}
-     className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+     className="flex-[0.75] relative rounded-2xl p-[2px]"
      >
+      {/* Google colors rotating gradient border */}
+      <div className="absolute inset-0 rounded-2xl overflow-hidden">
+        <div
+          className="absolute inset-[-50%] animate-spin-slow"
+          style={{
+            background: 'conic-gradient(from 0deg, #4285F4, #EA4335, #FBBC05, #34A853, #4285F4)',
+          }}
+        />
+      </div>
+
+      <div className="relative bg-black-100 p-8 rounded-2xl z-10">
       <p className={styles.sectionSubText}>Get in  touch</p>
       <h4 className={styles.heroHeadText}>Contact.</h4>
 
@@ -138,6 +149,7 @@ const Contact = () => {
     
       </form>
 
+      </div>
      </motion.div>
 
 

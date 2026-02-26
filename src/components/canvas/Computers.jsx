@@ -9,14 +9,15 @@ const Computers = ({ isMobile }) => {
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15}
-       groundColor="black" />
-      <pointLight intensity={1} />
+      <hemisphereLight intensity={0.35}
+       groundColor="#1a1a2e" />
+      <ambientLight intensity={0.2} />
+      <pointLight intensity={1.5} position={[0, -1, 0]} />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
         penumbra={1}
-        intensity={1}
+        intensity={1.5}
         castShadow
         shadow-mapSize={1024}
       />
@@ -61,9 +62,18 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ 
+        preserveDrawingBuffer: true,
+        powerPreference: 'low-power',
+        antialias: false,
+      }}
+      onCreated={({ gl }) => {
+        gl.domElement.addEventListener('webglcontextlost', (e) => {
+          e.preventDefault();
+        });
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls

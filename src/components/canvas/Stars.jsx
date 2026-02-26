@@ -7,7 +7,7 @@ import * as random from 'maath/random/dist/maath-random.esm'
 
 const Stars = (props) => {
   const ref=useRef();
-  const sphere= useMemo(()=>random.inSphere(new Float32Array(3000), {radius :1.3}),[]);
+  const sphere= useMemo(()=>random.inSphere(new Float32Array(5000), {radius :1.2}),[]);
   useFrame((state,delta)=>{
     ref.current.rotation.x-=delta/10;
     ref.current.rotation.y -=delta/15;
@@ -24,7 +24,7 @@ const Stars = (props) => {
      <PointMaterial 
        transparent
        color='#f271c8'
-       size={0.005}
+       size={0.002}
        depthWrite={false}
        sizeAttenuation={true}
      
@@ -38,8 +38,22 @@ const Stars = (props) => {
 
 const StarsCanvas=()=>{
   return(
-    <div  className='w-full h-full absolute inset-0 z-[-1]' style={{pointerEvents:'none'}}>
-      <Canvas camera={{position:[0,0,1]}}>
+    <div  className='w-full h-full absolute inset-0 z-[0]' style={{pointerEvents:'none'}}>
+      <Canvas
+        camera={{position:[0,0,1]}}
+        gl={{ 
+          alpha: true,
+          powerPreference: 'low-power',
+          antialias: false,
+        }}
+        dpr={[1, 1.5]}
+        style={{ background: 'transparent' }}
+        onCreated={({ gl }) => {
+          gl.domElement.addEventListener('webglcontextlost', (e) => {
+            e.preventDefault();
+          });
+        }}
+      >
         <Suspense fallback={null}>
           <Stars />
         </Suspense>

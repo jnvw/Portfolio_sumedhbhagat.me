@@ -24,13 +24,22 @@ const EarthCanvas = () => {
     <Canvas
       shadows
       frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 1.5]}
+      gl={{ 
+        preserveDrawingBuffer: true,
+        powerPreference: 'low-power',
+        antialias: false,
+      }}
       camera={{
         fov: 45,
         near: 0.1,
         far: 200,
         position: [-4, 3, 6],
+      }}
+      onCreated={({ gl }) => {
+        gl.domElement.addEventListener('webglcontextlost', (e) => {
+          e.preventDefault();
+        });
       }}
     >
       <Suspense fallback={<CanvasLoader />}>
