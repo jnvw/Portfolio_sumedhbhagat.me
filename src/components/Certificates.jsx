@@ -72,14 +72,22 @@ const CertificateCard = ({ index, name, issuer, date, description, tags, image, 
 const Certificates = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ type: "spring", duration: 1.25 }}
+      >
         <p className={styles.sectionSubText}>My Achievements</p>
         <h2 className={styles.sectionHeadText}>Certificates.</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 1, delay: 0.1 }}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           Here are some of the professional certificates I have earned,

@@ -47,7 +47,10 @@ const EducationCard = ({ edu, index }) => {
 
   return (
     <motion.div
-      variants={fadeIn(index % 2 === 0 ? "right" : "left", "spring", 0.3 * index, 0.75)}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ type: "spring", duration: 0.75, delay: 0.15 * index }}
       className="relative w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -237,13 +240,21 @@ const About = () => {
 
 {/* ========== EDUCATION SECTION ========== */}
 <div className="mt-28">
-  <motion.div variants={textVariant()}>
+  <motion.div
+    initial={{ opacity: 0, y: -50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.1 }}
+    transition={{ type: "spring", duration: 1.25 }}
+  >
     <p className={styles.sectionSubText}>What I have studied</p>
     <h2 className={styles.sectionHeadText}>Education.</h2>
   </motion.div>
 
   <motion.p
-    variants={fadeIn(" ", " ", 0.1, 1)}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.1 }}
+    transition={{ duration: 1, delay: 0.1 }}
     className="mt-4 text-secondary text-[16px] max-w-3xl leading-[26px] mb-12"
   >
     My academic journey from Jawahar Navodaya Vidyalaya, Washim to Yeshwantrao Chavan College of Engineering, Nagpur — building a strong foundation in technology and computer science.
