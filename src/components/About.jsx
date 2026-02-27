@@ -1,10 +1,196 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Tilt } from 'react-tilt'
 import {motion} from'framer-motion'
 import { styles } from '../styles'
 import { services } from '../constants'
-import { fadeIn ,textVariant} from '../utils/motion'
+import { fadeIn ,textVariant, zoomIn, slideIn} from '../utils/motion'
 import { SectionWrapper } from '../hoc'
+
+const education = [
+  {
+    degree: "Bachelor of Technology (B.Tech)",
+    field: "Information Technology",
+    institution: "Yeshwantrao Chavan College of Engineering (YCCE), Nagpur",
+    year: "2021 – 2025",
+    score: "CGPA: 7.79 / 10",
+    icon: "🎓",
+    color: "from-[#4285F4] to-[#34A853]",
+    glowColor: "#4285F4",
+    highlights: ["Information Technology", "RTMNU University"],
+  },
+  {
+    degree: "Higher Secondary Certificate (HSC)",
+    field: "PCM + Computer Science",
+    institution: "Jawahar Navodaya Vidyalaya, Washim",
+    year: "2019 – 2021",
+    score: "87.80%",
+    icon: "📘",
+    color: "from-[#EA4335] to-[#FBBC05]",
+    glowColor: "#EA4335",
+    highlights: ["PCM + Computer Science", "CBSE Board"],
+  },
+  {
+    degree: "Secondary School Certificate (SSC)",
+    field: "General Studies",
+    institution: "Jawahar Navodaya Vidyalaya, Washim",
+    year: "2019",
+    score: "92.00%",
+    icon: "📗",
+    color: "from-[#FBBC05] to-[#34A853]",
+    glowColor: "#34A853",
+    highlights: ["All Subjects", "CBSE Board"],
+  },
+];
+
+const EducationCard = ({ edu, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      variants={fadeIn(index % 2 === 0 ? "right" : "left", "spring", 0.3 * index, 0.75)}
+      className="relative w-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Animated connector line */}
+      {index < education.length - 1 && (
+        <motion.div
+          className="absolute left-[29px] top-[80px] w-[3px] h-[calc(100%+20px)] z-0"
+          initial={{ height: 0 }}
+          whileInView={{ height: "calc(100% + 20px)" }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5 + index * 0.3 }}
+          style={{
+            background: `linear-gradient(to bottom, ${edu.glowColor}, transparent)`,
+          }}
+        />
+      )}
+
+      <div className="flex items-start gap-5 relative z-10">
+        {/* Timeline node */}
+        <motion.div
+          className={`edu-timeline-node flex-shrink-0 w-[60px] h-[60px] rounded-full bg-gradient-to-br ${edu.color} flex items-center justify-center text-2xl shadow-lg relative`}
+          whileHover={{ scale: 1.2, rotate: 360 }}
+          transition={{ type: "spring", stiffness: 200 }}
+          animate={isHovered ? { boxShadow: `0 0 30px ${edu.glowColor}` } : { boxShadow: `0 0 10px ${edu.glowColor}44` }}
+        >
+          <span className="drop-shadow-lg" style={{ WebkitTextFillColor: 'initial' }}>{edu.icon}</span>
+          {/* Pulse ring */}
+          <motion.div
+            className="absolute inset-0 rounded-full border-2"
+            style={{ borderColor: edu.glowColor }}
+            animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
+
+        {/* Card */}
+        <motion.div
+          className="edu-card flex-1 relative overflow-hidden rounded-2xl p-[2px]"
+          whileHover={{ scale: 1.02, y: -5 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          {/* Animated gradient border */}
+          <div className={`edu-gradient-border absolute inset-0 rounded-2xl bg-gradient-to-r ${edu.color} opacity-60`} />
+          
+          {/* Inner content */}
+          <div className="relative bg-tertiary rounded-2xl p-6 sm:p-8">
+            {/* Floating particles effect */}
+            <div className="edu-particles absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 rounded-full"
+                  style={{ background: edu.glowColor, left: `${15 + i * 15}%`, top: `${20 + (i % 3) * 25}%` }}
+                  animate={{ y: [-10, 10, -10], opacity: [0.2, 0.8, 0.2], scale: [0.5, 1.2, 0.5] }}
+                  transition={{ duration: 2 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+                />
+              ))}
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <motion.h3
+                  className="text-white text-[20px] sm:text-[24px] font-bold"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.2 }}
+                >
+                  {edu.degree}
+                </motion.h3>
+                <motion.span
+                  className={`edu-score-badge px-4 py-1.5 rounded-full text-sm font-bold bg-gradient-to-r ${edu.color} text-black shadow-lg`}
+                  whileHover={{ scale: 1.1 }}
+                  animate={{ boxShadow: [`0 0 10px ${edu.glowColor}66`, `0 0 25px ${edu.glowColor}99`, `0 0 10px ${edu.glowColor}66`] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  {edu.score}
+                </motion.span>
+              </div>
+
+              <motion.p
+                className="text-secondary text-[15px] sm:text-[16px] font-semibold mb-1"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + index * 0.2 }}
+              >
+                {edu.field}
+              </motion.p>
+
+              <motion.p
+                className="text-gray-400 text-[13px] sm:text-[14px] mb-3"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + index * 0.2 }}
+              >
+                🏫 {edu.institution}
+              </motion.p>
+
+              <div className="flex flex-wrap items-center justify-between">
+                <div className="flex flex-wrap gap-2">
+                  {edu.highlights.map((tag, i) => (
+                    <motion.span
+                      key={tag}
+                      className="edu-highlight-tag text-xs px-3 py-1 rounded-full bg-black-100 text-secondary border border-gray-700"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + index * 0.2 + i * 0.1, type: "spring" }}
+                      whileHover={{ borderColor: edu.glowColor, color: "#fff" }}
+                    >
+                      {tag}
+                    </motion.span>
+                  ))}
+                </div>
+                <motion.span
+                  className="text-xs text-gray-500 mt-2 sm:mt-0"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + index * 0.2 }}
+                >
+                  📅 {edu.year}
+                </motion.span>
+              </div>
+            </div>
+
+            {/* Bottom shimmer line */}
+            <motion.div
+              className="edu-shimmer absolute bottom-0 left-0 h-[2px] w-full"
+              style={{ background: `linear-gradient(90deg, transparent, ${edu.glowColor}, transparent)` }}
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
 
 const ServiceCard =({index,title,icon}) =>{
   return (
@@ -37,7 +223,7 @@ const About = () => {
 
   <motion.p variants={fadeIn(" "," ",0.1,1)} 
     className='mt-3  text-[17px] max-w-3xl leading-[21px]  text-gray-200 '>
-    As a highly motivated and skilled Software Developer, I am dedicated to creating innovative and efficient software solutions. With a strong foundation in multiple programming languages and development methodologies, I have a proven track record of delivering high-quality code and successful projects. My expertise in both front-end and back-end development enables me to design seamless user experiences and robust system architectures. I am an enthusiastic collaborator, adept at working in cross-functional teams to transform complex ideas into practical and scalable applications. A keen problem solver and continuous learner, I stay up-to-date with the latest technologies to drive continuous improvement in my work. I am passionate about leveraging my skills and creativity to make a positive impact in the digital landscape.
+    I am Sumedh Bhagat, I am dedicated to creating innovative and efficient software solutions. With a strong foundation in multiple programming languages and development methodologies, I have a proven track record of delivering high-quality code and successful projects. My expertise in both front-end and back-end development enables me to design seamless user experiences and robust system architectures. I am an enthusiastic collaborator, adept at working in cross-functional teams to transform complex ideas into practical and scalable applications. A keen problem solver and continuous learner, I stay up-to-date with the latest technologies to drive continuous improvement in my work. I am passionate about leveraging my skills and creativity to make a positive impact in the digital landscape.
 
 </motion.p>
 
@@ -48,10 +234,48 @@ const About = () => {
   ))}
 
 </div>
-  
-  
-  
-  
+
+{/* ========== EDUCATION SECTION ========== */}
+<div className="mt-28">
+  <motion.div variants={textVariant()}>
+    <p className={styles.sectionSubText}>What I have studied</p>
+    <h2 className={styles.sectionHeadText}>Education.</h2>
+  </motion.div>
+
+  <motion.p
+    variants={fadeIn(" ", " ", 0.1, 1)}
+    className="mt-4 text-secondary text-[16px] max-w-3xl leading-[26px] mb-12"
+  >
+    My academic journey from Jawahar Navodaya Vidyalaya, Washim to Yeshwantrao Chavan College of Engineering, Nagpur — building a strong foundation in technology and computer science.
+  </motion.p>
+
+  <div className="flex flex-col gap-10">
+    {education.map((edu, index) => (
+      <EducationCard key={edu.degree} edu={edu} index={index} />
+    ))}
+  </div>
+
+  {/* Decorative bottom element */}
+  <motion.div
+    className="mt-12 flex justify-center"
+    initial={{ opacity: 0, scale: 0 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ delay: 1.2, type: "spring", stiffness: 100 }}
+  >
+    <div className="edu-completion-badge relative px-8 py-3 rounded-full bg-tertiary border border-gray-700 overflow-hidden">
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{ background: "linear-gradient(90deg, transparent, rgba(66, 133, 244, 0.15), transparent)" }}
+        animate={{ x: ["-100%", "200%"] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      />
+      <span className="relative text-sm text-gray-300 font-medium" style={{ WebkitTextFillColor: 'initial' }}>
+        🎯 Continuously learning & growing
+      </span>
+    </div>
+  </motion.div>
+</div>
   
   </>
   )

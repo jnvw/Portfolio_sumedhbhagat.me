@@ -60,7 +60,9 @@
     #f5af19
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .green-text-gradient {
@@ -76,7 +78,9 @@
     #38ef7d
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .blue-text-gradient {
@@ -93,7 +97,9 @@
     #56ccf2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .pink-text-gradient {
@@ -109,10 +115,126 @@
     #fc6767
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* canvas- styles */
+
+/* ===== EDUCATION SECTION ANIMATIONS ===== */
+
+/* Timeline node glow pulse */
+.edu-timeline-node {
+  position: relative;
+}
+
+.edu-timeline-node::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: inherit;
+  filter: blur(12px);
+  opacity: 0.3;
+  z-index: -1;
+  animation: edu-node-breathe 3s ease-in-out infinite;
+}
+
+@keyframes edu-node-breathe {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.15); }
+}
+
+/* Card holographic shimmer */
+.edu-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(66, 133, 244, 0.06) 60deg,
+    transparent 120deg,
+    rgba(234, 67, 53, 0.06) 180deg,
+    transparent 240deg,
+    rgba(52, 168, 83, 0.06) 300deg,
+    transparent 360deg
+  );
+  animation: edu-holographic 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+@keyframes edu-holographic {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Gradient border animation */
+.edu-gradient-border {
+  animation: edu-border-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes edu-border-pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+/* Score badge shine */
+.edu-score-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-score-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: edu-badge-shine 3s ease-in-out infinite;
+}
+
+@keyframes edu-badge-shine {
+  0% { left: -100%; }
+  50% { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* Highlight tag hover glow */
+.edu-highlight-tag {
+  transition: all 0.3s ease;
+}
+
+.edu-highlight-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(66, 133, 244, 0.2);
+}
+
+/* Completion badge floating */
+.edu-completion-badge {
+  animation: edu-float 3s ease-in-out infinite;
+}
+
+@keyframes edu-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Bottom shimmer animation */
+.edu-shimmer {
+  pointer-events: none;
+}
+
+/* ===== END EDUCATION ANIMATIONS ===== */
 
 /* Timeline snake traveling effect */
 .vertical-timeline {
